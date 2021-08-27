@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="container col-sm-6">
+  <div class="card text-center">
+    <div class="card-header" style="background-color: lightsteelblue;">Login to continue.</div>
+    <div class="card-body">
+      <h4 class="card-title" style="margin-bottom: 20px;">Welcome to SportsBasket</h4>
+      <form [formGroup]="loginForm" (ngSubmit)="loginAction">
+        <mdb-form-control style="margin-bottom: 20px;">
+          <input mdbInput type="text" id="username" class="form-control" formControlName="username"/>
+          <label mdbLabel class="form-label" for="username">* Email Address</label>
+        </mdb-form-control>
+        <div *ngIf="usernameValidity.invalid && usernameValidity.touched" style="color: red; margin-bottom: 20px;">
+          <small>Invalid Email</small>
+        </div>
+        <mdb-form-control style="margin-bottom: 20px;">
+          <input mdbInput type="password" id="password" class="form-control" formControlName="password"/>
+          <label mdbLabel class="form-label" for="password">* Password</label>
+        </mdb-form-control>
+        <div *ngIf="passwordValidity.invalid && passwordValidity.touched" style="color: red; margin-bottom: 20px;">
+          <small>Invalid Password</small>
+        </div>
+        <button class="btn btn-primary">Login</button>
+      </form>
+    </div>
+    <div class="card-footer text-muted" style="background-color: lightsteelblue;">* fields must be filled.</div>
+  </div>
+</div>
